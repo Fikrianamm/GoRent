@@ -1,8 +1,15 @@
 import express from "express";
+import { fileURLToPath } from "url"; 
 import { categories, products } from "./data.js";
 
 const app = express();
 const port = 3000;
+
+// Define __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.set("views", path.join(__dirname, "views"));
 
 // Set EJS as templating engine
 app.set("view engine", "ejs");
@@ -10,7 +17,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => {S
   res.render("home.ejs", { products, categories });
 });
 

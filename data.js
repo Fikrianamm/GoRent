@@ -162,10 +162,6 @@ Interface :
 
 export const categories = [
   {
-    id: "GAD",
-    name: "Gadget",
-  },
-  {
     id: "HOM",
     name: "Peralatan Rumah Tangga",
   },
@@ -188,5 +184,9 @@ export const categories = [
   {
     id: "TEC",
     name: "Peralatan Teknologi Khusus",
+  },
+  {
+    id: "GAD",
+    name: "Gadget",
   },
 ];

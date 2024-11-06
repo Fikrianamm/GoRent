@@ -96,6 +96,22 @@ body {
   background-color: #fff5f5;
 }
 
+.dropdown-hover:hover .dropdown-menu {
+  display: block;
+}
+
+.category-item {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.category-item:hover {
+  background-color: #f8f9fa;
+}
+
+
 .search-container {
   background: #f5f5f5;
   border-radius: 8px;
@@ -115,10 +131,12 @@ body {
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .product-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-img {
@@ -165,6 +183,11 @@ body {
 
 .scroll-container{
   cursor: grab;
+  border-radius: 12px;
+}
+
+.scroll-container > div {
+  border-radius: 12px;
 }
 
 .hidden-scroll::-webkit-scrollbar{
@@ -175,5 +198,30 @@ body {
   user-select: none;
 }
 
+.terlaris-section{
+  position: relative;
+}
+
+.terlaris-title{
+  background: #2D83B2;
+  padding: 70px 24px;
+  width: 300px;
+  height: 308px;
+}
+
 @media (min-width: 768px) {
+  .logo-goRent{
+    width: 120px;
+  }
+  .scroll-container{
+    position: relative;
+    right: 20px;
+    top: 30px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .logo-goRent{
+    width: 200px;
+  }
 }

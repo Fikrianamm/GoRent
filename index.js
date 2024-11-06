@@ -1,5 +1,5 @@
 import express from "express";
-import { products } from "./data.js";
+import { categories, products } from "./data.js";
 
 const app = express();
 const port = 3000;
@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("home.ejs", { products });
+  res.render("home.ejs", { products, categories });
 });
 
 app.get("/signin", (req, res) => {

@@ -6,181 +6,155 @@
   <title>GoRent | Home</title>
 </head>
 
+<style>
+  .product-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+
+  .product-image:hover {
+    opacity: 0.9;
+  }
+
+  .modal-fullscreen .modal-content {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: none;
+  }
+
+  .modal-fullscreen img {
+    max-height: 90vh;
+    width: auto;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  .close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: white;
+    font-size: 30px;
+    z-index: 1050;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+
+  .close-modal-btn:hover {
+    color: #ccc;
+  }
+</style>
+
 <body>
 
   <!-- topbar start -->
-   <div class="d-none d-md-inline">
-       <%- include('./partials/topbar') %>
-    </div>
+  <div class="d-none d-md-inline">
+    <%- include('./partials/topbar') %>
+  </div>
   <!-- topbar end -->
-  
-  <!-- views/product-detail.ejs -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <style>
-        .product-image {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-        .product-image:hover {
-            opacity: 0.9;
-        }
-        .rating {
-            color: #ffc107;
-        }
-        .review-card {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #000;
-        }
-        .modal-fullscreen .modal-content {
-            background-color: rgba(0, 0, 0, 0.9);
-            border: none;
-        }
-        .modal-fullscreen img {
-            max-height: 90vh;
-            width: auto;
-            max-width: 100%;
-            margin: auto;
-        }
-        .close-modal-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: white;
-            font-size: 30px;
-            z-index: 1050;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        .close-modal-btn:hover {
-            color: #ccc;
-        }
-    </style>
-</head>
-<body>
-    <div class="container mt-4">
-        <!-- Product Detail Section -->
-        <div class="card">
-            <div class="position-relative">
-                <a href="#" class="back-button">←</a>
-                <img src="/assets/images/laptop-yoga.jpg" 
-                     class="card-img-top product-image mx-auto d-block" 
-                     alt="Lenovo Yoga 7"
-                     data-bs-toggle="modal"
-                     data-bs-target="#imageModal">
+
+  <div class="container-fluid p-0">
+    <!-- Product Detail Section -->
+    <div class="position-relative image-container ratio ratio-1x1 bg-black">
+      <a href="/" class="rounded-5 btn-back-circle z-3">
+        <i class="bi bi-arrow-left"></i>
+      </a>
+      <img src=<%= product.image %> class="img-fluid object-fit-contain" alt=<%= product.name %> data-bs-toggle="modal" data-bs-target="#imageModal">
+    </div>
+    <div class="container mt-4 pb-5 mb-5">
+      <div class="d-flex justify-content-between align-items-center">
+        <h5 class="fw-semibold fs-3"><%= product.name %></h5>
+        <div class="rating fs-3">
+          4.5 ⭐
+        </div>
+      </div>
+
+      <p class="detail-desc">
+        <%= product.description %>
+      </p>
+
+      <!-- detail produk section -->
+      <h3 class="fw-semibold fs-5 mb-4">Detail Produk</h3>
+      <div class="d-flex flex-column gap-3">
+        <div class="border-1 border-bottom d-flex justify-content-between w-100">
+          <h6>Kondisi</h6>
+          <p class="fw-semibold"><%= product.condition %></p>
+        </div>
+        <div class="border-1 border-bottom d-flex justify-content-between w-100">
+          <h6>Harga per hari</h6>
+          <p class="fw-semibold">Rp<%= product.pricePerDay.toLocaleString() %>/hari</p>
+        </div>
+        <div class="border-1 border-bottom d-flex justify-content-between w-100">
+          <h6>Tersedia</h6>
+          <p class="fw-semibold"><%= product.stock %></p>
+        </div>
+      </div>
+
+
+      <!-- Reviews Section -->
+      <h3 class="fw-semibold fs-5 mb-4 mt-4">Review</h3>
+      <div class="d-flex flex-column gap-3 align-items-center">
+        <div class="review-card d-flex gap-3 justify-content-center">
+          <div class="d-flex flex-column">
+            <div class="rating">⭐</div>
+            <p class="rating fw-bold">4.5</p>
+          </div>
+          <div class="d-flex flex-column gap-1">
+            <div class="d-flex justify-content-between align-items-center">
+              <strong class="">Sulthon</strong>
+              <small class="text-muted">Aug 9, 2024</small>
             </div>
-            <!-- Rest of the product details remain the same -->
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="card-title">Lenovo Yoga 7</h5>
-                    <div class="rating">
-                        4.5 ⭐
-                    </div>
-                </div>
-
-                <h6 class="mt-3">Spesifikasi:</h6>
-                <ul class="list-unstyled">
-                    <li>- 13,3" 2.5K (2560x1600) IPS 400 nits Anti-glare, 90 Hz, 100% sRGB, Low Blue Light, TUV Eyesafe, Dolby Vision, Touch</li>
-                    <li>- Intel Core i5-1240P, 12C (4P + 8E) / 16T, P-core 1,7 / 4,4 GHz, E-core 1,2 / 3,3GHz, 12MB</li>
-                    <li>- Integrated Intel Iris Xe Graphics <a href="#" class="text-primary">See more</a></li>
-                </ul>
-
-                <div class="row mt-4">
-                    <div class="col-6">
-                        <h6>Kondisi</h6>
-                        <p>Sangat baik</p>
-                    </div>
-                    <div class="col-6">
-                        <h6>Harga per hari</h6>
-                        <p>Rp100.000/hari</p>
-                    </div>
-                </div>
-
-                <div class="mt-2">
-                    <h6>Tersedia</h6>
-                    <p>10</p>
-                </div>
-
-                <!-- Reviews Section -->
-                <h6 class="mt-4">Review</h6>
-                <div class="review-card">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <span class="rating">⭐ 4.5</span>
-                            <strong class="ms-2">Sulthon</strong>
-                        </div>
-                        <small class="text-muted">Aug 9, 2024</small>
-                    </div>
-                    <p class="mb-0 mt-2">Ringan dan nyaman dibawa. Performa baik, meski layar agak reflektif di luar ruangan. Overall memuaskan!</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <span class="rating">⭐ 4.5</span>
-                            <strong class="ms-2">Fahris</strong>
-                        </div>
-                        <small class="text-muted">Aug 9, 2024</small>
-                    </div>
-                    <p class="mb-0 mt-2">Saya suka desain ramping dan ringan Yoga 7, nyaman dibawa ke mana saja. Performa juga cukup cepat untuk pekerjaan kantor dan browsing. Namun, saya merasa layarnya agak reflektif saat digunakan di luar ruangan, tapi overall sangat bagus!</p>
-                </div>
-
-                <a href="#" class="text-primary">+25 Lihat review</a>
-            </div>
+            <p class="mb-0 mt-2">Ringan dan nyaman dibawa. Performa baik, meski layar agak reflektif di luar ruangan. Overall memuaskan!</p>
+          </div>
         </div>
 
-        <!-- Fixed Bottom Button -->
-        <div class="fixed-bottom bg-white border-top p-3">
-            <div class="container d-flex justify-content-between align-items-center">
-                <div>
-                    <h6 class="mb-0">Lenovo Yoga 7</h6>
-                    <p class="mb-0">Rp100.000/hari</p>
-                </div>
-                <button class="btn btn-primary">Sewa Produk</button>
+        <div class="review-card d-flex gap-3 justify-content-center">
+          <div class="d-flex flex-column">
+            <div class="rating">⭐</div>
+            <p class="rating fw-bold">4.5</p>
+          </div>
+          <div class="d-flex flex-column gap-1">
+            <div class="d-flex justify-content-between align-items-center">
+              <strong class="">Fahris</strong>
+              <small class="text-muted">Aug 9, 2024</small>
             </div>
+            <p class="mb-0 mt-2">Saya suka desain ramping dan ringan Yoga 7, nyaman dibawa ke mana saja. Performa juga cukup cepat untuk pekerjaan kantor dan browsing. Namun, saya merasa layarnya agak reflektif saat digunakan di luar ruangan, tapi overall sangat bagus!</p>
+          </div>
         </div>
+      </div>
+
+      <div class="text-center w-100 mb-5 mt-2">
+        <a href="#" class="text-primary">+25 Lihat review</a>
+      </div>
     </div>
 
-    <!-- Fullscreen Image Modal -->
-    <div class="modal modal-fullscreen fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-        <button type="button" class="close-modal-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-body d-flex align-items-center justify-content-center">
-                    <img src="/assets/images/laptop-yoga.jpg" alt="Lenovo Yoga 7" class="img-fluid">
-                </div>
-            </div>
+    <!-- Fixed Bottom Button -->
+    <div class="fixed-bottom bg-white border-top p-3">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div>
+          <h6 class="mb-0 fw-bold fs-5"><%= product.name %></h6>
+          <p class="mb-0 fs-6 fw-semibold">Rp<%= product.pricePerDay.toLocaleString() %>/hari</p>
         </div>
+        <button class="btn btn-primary">Sewa Produk</button>
+      </div>
     </div>
+  </div>
+
+  <!-- Fullscreen Image Modal -->
+  <div class="modal modal-fullscreen fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <button type="button" class="close-modal-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-body d-flex align-items-center justify-content-center">
+          <img src=<%= product.image %> alt=<%= product.name %> class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <%- include('./partials/script.ejs') %>
 </body>

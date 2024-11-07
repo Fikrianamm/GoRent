@@ -25,16 +25,17 @@ app.get("/signup", (req, res) => {
 app.get("/:productId", (req, res) => {
   const productId = req.params.productId;
 
-  const product = products.find(p => p.id == productId);
+  const product = products.find((p) => p.id == productId);
 
   if (!product) {
-    return res.status(404).render("error.ejs", { 
-      errorTitle: 'Halaman Tidak Ditemukan',
-      errorMessage: 'Maaf, halaman yang Anda cari tidak dapat ditemukan. Silakan kembali ke halaman utama.'
+    return res.status(404).render("error.ejs", {
+      errorTitle: "Halaman Tidak Ditemukan",
+      errorMessage:
+        "Maaf, halaman yang Anda cari tidak dapat ditemukan. Silakan kembali ke halaman utama.",
     });
   }
 
-  res.render("detailProduk.ejs", { 
+  res.render("detailProduk.ejs", {
     product,
     categories,
   });
@@ -43,13 +44,3 @@ app.get("/:productId", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}.`);
 });
-
-export default app;
-
-// Only listen to port if running directly (not on Vercel)
-if (require.main === module) {
-    const port = process.env.PORT || 3000;
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-    });
-}

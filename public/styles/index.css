@@ -170,6 +170,10 @@ body {
   font-size: 0.9rem;
 }
 
+.rating {
+  font-size: 1rem;
+}
+
 .rating-count {
   color: #666;
   font-size: 0.9rem;
@@ -186,8 +190,9 @@ body {
   border-radius: 12px;
 }
 
-.scroll-container > div {
+.scroll-container > a {
   border-radius: 12px;
+  text-decoration: none;
 }
 
 .hidden-scroll::-webkit-scrollbar{
@@ -207,6 +212,29 @@ body {
   padding: 70px 24px;
   width: 300px;
   height: 308px;
+}
+
+.btn-back-circle{
+  background-color: #696969;
+  color: white;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container{
+  height: 400px;
+}
+
+.review-card{
+  background-color: #ebebeb;
+  padding: 1rem;
+  border-radius: 8px;
 }
 
 @media (min-width: 768px) {

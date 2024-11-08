@@ -42,7 +42,10 @@ app.get("/:productId", (req, res) => {
     });
   }
 
+  const filteredProducts = products.filter((p)=>p.id != productId)
+
   res.render("detailProduk.ejs", {
+    products: filteredProducts,
     product,
     categories,
   });

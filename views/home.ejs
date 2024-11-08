@@ -45,7 +45,7 @@
       <h2 class="section-title">Rekomendasi</h2>
       <div class="row g-3">
         <% products.forEach(product => { %>
-        <a href=<%= product.id %> class="col-6 col-md-4 col-lg-2 no-select">
+        <a href=<%= product.id %> class="col-6 col-md-4 col-lg-2 no-select text-decoration-none">
           <div class="product-card">
             <img src=<%= product.image %> alt=<%= product.name %> class="product-img" />
             <div class="p-3">

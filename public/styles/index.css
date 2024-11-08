@@ -237,6 +237,10 @@ body {
   border-radius: 8px;
 }
 
+/* .detail-group-left{
+  width: 35%;
+} */
+
 @media (min-width: 768px) {
   .logo-goRent{
     width: 120px;

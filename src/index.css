@@ -50,20 +50,7 @@ body {
   color: #6c757d;
 }
 
-.profile-button {
-  width: 40px;
-  height: 40px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-menu {
+/* .dropdown-menu {
   min-width: 200px;
   padding: 8px;
   border-radius: 8px;
@@ -98,7 +85,7 @@ body {
 
 .dropdown-hover:hover .dropdown-menu {
   display: block;
-}
+} */
 
 .category-item {
   padding: 0.5rem 1rem;
@@ -110,7 +97,6 @@ body {
 .category-item:hover {
   background-color: #f8f9fa;
 }
-
 
 .search-container {
   background: #f5f5f5;
@@ -126,54 +112,6 @@ body {
   padding: 4px;
 }
 
-.product-card {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.product-title {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #333;
-  text-decoration: none;
-}
-
-.product-price {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 4px;
-}
-
-.price-period {
-  font-size: 0.8rem;
-  color: #666;
-  font-weight: normal;
-}
-
-.star-rating {
-  color: #ffc107;
-  font-size: 0.9rem;
-}
-
-.rating-count {
-  color: #666;
-  font-size: 0.9rem;
-}
 
 .section-title {
   font-size: 1.2rem;
@@ -181,7 +119,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.scroll-container{
+.scroll-container {
   cursor: grab;
   border-radius: 12px;
 }
@@ -190,30 +128,30 @@ body {
   border-radius: 12px;
 }
 
-.hidden-scroll::-webkit-scrollbar{
+.hidden-scroll::-webkit-scrollbar {
   display: none;
 }
 
-.no-select{
+.no-select {
   user-select: none;
 }
 
-.terlaris-section{
+.terlaris-section {
   position: relative;
 }
 
-.terlaris-title{
-  background: #2D83B2;
+.terlaris-title {
+  background: #2d83b2;
   padding: 70px 24px;
   width: 300px;
   height: 308px;
 }
 
 @media (min-width: 768px) {
-  .logo-goRent{
+  .logo-goRent {
     width: 120px;
   }
-  .scroll-container{
+  .scroll-container {
     position: relative;
     right: 20px;
     top: 30px;
@@ -221,7 +159,7 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .logo-goRent{
+  .logo-goRent {
     width: 200px;
   }
 }
